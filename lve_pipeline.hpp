@@ -6,7 +6,20 @@
 
 namespace lve{
 
-    struct PipelineConfigInfo{};
+    struct PipelineConfigInfo {
+        VkViewport viewport;
+        VkRect2D scissor;
+        VkPipelineViewportStateCreateInfo viewportInfo;
+        VkPipelineInputAssemblyStateCreateInfo inputAssemblyInfo;
+        VkPipelineRasterizationStateCreateInfo rasterizationInfo;
+        VkPipelineMultisampleStateCreateInfo multisampleInfo;
+        VkPipelineColorBlendAttachmentState colorBlendAttachment;
+        VkPipelineColorBlendStateCreateInfo colorBlendInfo;
+        VkPipelineDepthStencilStateCreateInfo depthStencilInfo;
+        VkPipelineLayout pipelineLayout = nullptr;
+        VkRenderPass renderPass = nullptr;
+        uint32_t subpass = 0;
+    };
 
     class LvePipeline{
       public:
@@ -16,8 +29,9 @@ namespace lve{
                     const PipelineConfigInfo& configInfo);
 
         // Since our pipeline is responsible for manigin the lifetime of
-        // this resources. (He's talking about Global variables (?))
-        ~LvePipeline(){}
+        // this resources, we need this destroyer (He's talking about Global variables (?))
+        ~LvePipeline(); //IMPLEMENTED IN .CPP
+
 
         // We dont want to duplicate our pointers to the vulkan objects
         LvePipeline(const LvePipeline&) = delete;
@@ -38,7 +52,7 @@ namespace lve{
         VkShaderModule* shaderModule);
 
         LveDevice& lveDevice;
-        VkPipeline graphicPipeline;
+        VkPipeline graphicsPipeline;
         VkShaderModule vertShaderModule;
         VkShaderModule fragShaderModule;
 
