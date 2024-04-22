@@ -4,7 +4,11 @@ namespace lve {
     // Constructor definition to initialize lveWindow and lvePipeline
     FirstApp::FirstApp() 
         : lveWindow(WIDTH, HEIGHT, "Hello Vulkan"),
-          lvePipeline("shaders/simple_shader.vert.spv", "shaders/simple_shader.frag.spv") {
+          lveDevice(lveWindow),
+          lvePipeline(lveDevice, 
+                      "shaders/simple_shader.vert.spv", 
+                      "shaders/simple_shader.frag.spv", 
+                      LvePipeline::defaultPipelineConfigInfo(WIDTH, HEIGHT)) {
         // Constructor initializer list initializes lveWindow and lvePipeline
     }
     
@@ -14,4 +18,4 @@ namespace lve {
                               // loike keystrokes of user or clicks to X button to dismiss window
         }
     }
-}
+} 

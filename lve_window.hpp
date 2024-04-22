@@ -12,6 +12,9 @@ namespace lve{  //Lve meaning?
             ~LveWindow(); // Destructer to destroy window when we are not using it
 
             bool shouldClose(){ return glfwWindowShouldClose(window);} //Trying to see if user tried to close window
+
+            void createWindowSurface(VkInstance instace, VkSurfaceKHR *surface);
+        
         private:
 
             void initWindow();
