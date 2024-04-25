@@ -151,6 +151,20 @@ namespace lve{
             }
         }
 
+    void LvePipeline::bind(VkCommandBuffer commandBuffer){
+
+        // Check if graphicsPipeline is a valid handle (not VK_NULL_HANDLE)
+        if (graphicsPipeline == VK_NULL_HANDLE || graphicsPipeline == nullptr) {
+        // Handle the error condition: graphicsPipeline is not initialized or created
+        // You can choose to log an error, throw an exception, or handle it based on your application's needs
+        assert(false && "Graphics pipeline is not initialized or created");
+        return; // Return early if pipeline is not valid
+    }
+
+        // here we have, graphics pipeline, computing pipeline or raytracing pipelines
+        vkCmdBindPipeline(commandBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, graphicsPipeline);
+    }
+
     PipelineConfigInfo LvePipeline::defaultPipelineConfigInfo(uint32_t width, uint32_t height){
         // ConfigInfo local variable
         PipelineConfigInfo configInfo{};

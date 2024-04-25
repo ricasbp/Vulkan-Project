@@ -25,7 +25,7 @@ class LveSwapChain {
   VkFramebuffer getFrameBuffer(int index) { return swapChainFramebuffers[index]; }
   VkRenderPass getRenderPass() { return renderPass; }
   VkImageView getImageView(int index) { return swapChainImageViews[index]; }
-  size_t imageCount() { return swapChainImages.size(); }
+  size_t imageCount() { return swapChainImages.size(); } // Ricas: Returns how many FrameBuffers (??)
   VkFormat getSwapChainImageFormat() { return swapChainImageFormat; }
   VkExtent2D getSwapChainExtent() { return swapChainExtent; }
   uint32_t width() { return swapChainExtent.width; }
