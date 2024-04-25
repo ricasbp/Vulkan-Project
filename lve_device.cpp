@@ -1,3 +1,5 @@
+// Used to be my_engine_device.cpp
+
 #include "lve_device.hpp"
 
 // std headers
@@ -46,15 +48,17 @@ void DestroyDebugUtilsMessengerEXT(
   }
 }
 
-// class member functions
+
+// (03) The connection between Our Application an the Vulkan Library
 LveDevice::LveDevice(LveWindow &window) : window{window} {
-  //04m:10s Device Setup & Pipeline cont.
-  createInstance();
-  setupDebugMessenger();
-  createSurface();
-  pickPhysicalDevice();
-  createLogicalDevice();
-  createCommandPool();
+  //(04, 4m10s)
+  createInstance();      // Create Vulkan Instance
+  setupDebugMessenger(); // When Debuging, use this aux methods, since vulkan doenst
+                         // do bug checking
+  createSurface();       // Connection between our Glfw window and vulkan
+  pickPhysicalDevice();  // Chooses the Physical GPU
+  createLogicalDevice(); // What feature of our physical device we want to use
+  createCommandPool();   // Create the buffers
 }
 
 LveDevice::~LveDevice() {

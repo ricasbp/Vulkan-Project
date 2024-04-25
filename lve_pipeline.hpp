@@ -6,10 +6,12 @@
 
 namespace lve{
 
+    // Vulkan Pipeline Config in Application Layer to be able 
+    // to configure complety the pipeline, and share the configuration
+    // between multiple pipelines
     struct PipelineConfigInfo {
         VkViewport viewport;
         VkRect2D scissor;
-        VkPipelineViewportStateCreateInfo viewportInfo;
         VkPipelineInputAssemblyStateCreateInfo inputAssemblyInfo;
         VkPipelineRasterizationStateCreateInfo rasterizationInfo;
         VkPipelineMultisampleStateCreateInfo multisampleInfo;
@@ -49,7 +51,7 @@ namespace lve{
             const PipelineConfigInfo& configInfo);
 
         void createShaderModule(const std::vector<char>& code, 
-        VkShaderModule* shaderModule);
+              VkShaderModule* shaderModule);
 
         LveDevice& lveDevice;
         VkPipeline graphicsPipeline;

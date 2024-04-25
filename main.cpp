@@ -15,7 +15,7 @@
 #include <stdexcept>
 
 int main() {
-    lve::FirstApp app{};
+    lve::FirstApp app{}; //Creates instance
     
     try{
         app.run();

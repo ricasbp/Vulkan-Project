@@ -12,12 +12,9 @@ namespace lve {
     
     LveWindow::LveWindow(int w, int h, std::string name) : width(w), height(w), windowName(name){ //Constructor
         initWindow();
-
         std::string myString = "Hello, world! This is my windowName: ";
         std::cout << myString << std::endl; // Output: Hello, world
         std::cout << windowName << std::endl;
-
-        
     }
 
     LveWindow::~LveWindow(){ // Destroyer
@@ -28,9 +25,10 @@ namespace lve {
     void LveWindow::initWindow(){ 
         glfwInit(); // Initialize the glfw livrary;
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API); // We want to use Vulkan;
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Tutorial 20 explains it. Resize window
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Tutorial 10 explains it. Resize window
 
-        window = glfwCreateWindow(width, height, windowName.c_str(), nullptr, nullptr);
+        //Last parameters tells us if its fullscreen or not.
+        window = glfwCreateWindow(width, height, windowName.c_str(), nullptr, nullptr);  
     }
 
     void LveWindow::createWindowSurface(VkInstance instance, VkSurfaceKHR *surface){
@@ -39,5 +37,4 @@ namespace lve {
         }
     }
 
- 
 }// namespace lve 

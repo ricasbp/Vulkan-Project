@@ -19,5 +19,5 @@ void main(){
     // 1arg: gl_VertexIndex contains index of the current vortex for each time this 
     // function is run.
     // 2arg: Z component. Closest plane is going to be 0.
-    // 3arg: Divides the whole "vectorless" (?).
+    // 3arg: Divides the whole "vectorless" of points (?).
 }
