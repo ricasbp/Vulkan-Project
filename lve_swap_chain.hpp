@@ -1,4 +1,3 @@
-//Previously: my_engine_swap_chain.hpp
 #pragma once
 
 #include "lve_device.hpp"
@@ -14,7 +13,7 @@ namespace lve {
 
 class LveSwapChain {
  public:
-  static constexpr int MAX_FRAMES_IN_FLIGHT = 2; //2 command buffers
+  static constexpr int MAX_FRAMES_IN_FLIGHT = 2;
 
   LveSwapChain(LveDevice &deviceRef, VkExtent2D windowExtent);
   ~LveSwapChain();
@@ -25,7 +24,7 @@ class LveSwapChain {
   VkFramebuffer getFrameBuffer(int index) { return swapChainFramebuffers[index]; }
   VkRenderPass getRenderPass() { return renderPass; }
   VkImageView getImageView(int index) { return swapChainImageViews[index]; }
-  size_t imageCount() { return swapChainImages.size(); } // Ricas: Returns how many FrameBuffers (??)
+  size_t imageCount() { return swapChainImages.size(); }
   VkFormat getSwapChainImageFormat() { return swapChainImageFormat; }
   VkExtent2D getSwapChainExtent() { return swapChainExtent; }
   uint32_t width() { return swapChainExtent.width; }

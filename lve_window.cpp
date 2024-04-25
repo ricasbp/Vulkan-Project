@@ -1,40 +1,30 @@
 #include "lve_window.hpp"
 
-#include <iostream>
-#include <string>
-
+// std
 #include <stdexcept>
 
 namespace lve {
-    
-    // Here is the constructor for our class variables.
-    // e.g: We receive w, and construct width variable;
-    
-    LveWindow::LveWindow(int w, int h, std::string name) : width(w), height(w), windowName(name){ //Constructor
-        initWindow();
-        std::string myString = "Hello, world! This is my windowName: ";
-        std::cout << myString << std::endl; // Output: Hello, world
-        std::cout << windowName << std::endl;
-    }
 
-    LveWindow::~LveWindow(){ // Destroyer
-        glfwDestroyWindow(window); // Destroy glfw in specific Window Pointer
-        glfwTerminate();
-    }
+LveWindow::LveWindow(int w, int h, std::string name) : width{w}, height{h}, windowName{name} {
+  initWindow();
+}
 
-    void LveWindow::initWindow(){ 
-        glfwInit(); // Initialize the glfw livrary;
-        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API); // We want to use Vulkan;
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Tutorial 10 explains it. Resize window
+LveWindow::~LveWindow() {
+  glfwDestroyWindow(window);
+  glfwTerminate();
+}
 
-        //Last parameters tells us if its fullscreen or not.
-        window = glfwCreateWindow(width, height, windowName.c_str(), nullptr, nullptr);  
-    }
+void LveWindow::initWindow() {
+  glfwInit();
+  glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+  glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-    void LveWindow::createWindowSurface(VkInstance instance, VkSurfaceKHR *surface){
-        if(glfwCreateWindowSurface(instance, window, nullptr, surface) != VK_SUCCESS){
-            throw std::runtime_error("failed to create window surface!");
-        }
-    }
+  window = glfwCreateWindow(width, height, windowName.c_str(), nullptr, nullptr);
+}
 
-}// namespace lve 
+void LveWindow::createWindowSurface(VkInstance instance, VkSurfaceKHR *surface) {
+  if (glfwCreateWindowSurface(instance, window, nullptr, surface) != VK_SUCCESS) {
+    throw std::runtime_error("failed to create window surface!");
+  }
+}
+}  // namespace lve

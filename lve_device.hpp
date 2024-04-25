@@ -1,4 +1,3 @@
-// Used to be my_engine_device.hpp
 #pragma once
 
 #include "lve_window.hpp"

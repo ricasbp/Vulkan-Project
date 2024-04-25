@@ -1,5 +1,3 @@
-// Used to be my_engine_device.cpp
-
 #include "lve_device.hpp"
 
 // std headers
@@ -48,17 +46,14 @@ void DestroyDebugUtilsMessengerEXT(
   }
 }
 
-
-// (03) The connection between Our Application an the Vulkan Library
+// class member functions
 LveDevice::LveDevice(LveWindow &window) : window{window} {
-  //(04, 4m10s)
-  createInstance();      // Create Vulkan Instance
-  setupDebugMessenger(); // When Debuging, use this aux methods, since vulkan doenst
-                         // do bug checking
-  createSurface();       // Connection between our Glfw window and vulkan
-  pickPhysicalDevice();  // Chooses the Physical GPU
-  createLogicalDevice(); // What feature of our physical device we want to use
-  createCommandPool();   // Create the buffers
+  createInstance();
+  setupDebugMessenger();
+  createSurface();
+  pickPhysicalDevice();
+  createLogicalDevice();
+  createCommandPool();
 }
 
 LveDevice::~LveDevice() {
@@ -218,11 +213,11 @@ bool LveDevice::isDeviceSuitable(VkPhysicalDevice device) {
          supportedFeatures.samplerAnisotropy;
 }
 
-void LveDevice::populateDebugMessengerCreateInfo(
-    VkDebugUtilsMessengerCreateInfoEXT &createInfo) {
+void LveDevice::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT &createInfo) {
   createInfo = {};
   createInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
-  createInfo.messageSeverity = VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT |
+  createInfo.messageSeverity = VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT |
+                               VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT |
                                VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;
   createInfo.messageType = VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT |
                            VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT |
