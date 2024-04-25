@@ -32,14 +32,10 @@ namespace lve{
             void createCommandBuffers();
             void drawFrame();
 
-            LveWindow lveWindow; // Declare LveWindow as a member variable
-            LveDevice lveDevice;
-            LveSwapChain lveSwapChain;
-            // DELETED: LvePipeline lvePipeline;
-            
-            // This is a SmartPointer.
-            // Automatique memory management, no longer responsible for new and delete.
-            std::unique_ptr<LvePipeline> lvePipeline; 
+            LveWindow lveWindow{WIDTH, HEIGHT, "Hello Vulkan!"};
+            LveDevice lveDevice{lveWindow};
+            LveSwapChain lveSwapChain{lveDevice, lveWindow.getExtent()};
+            std::unique_ptr<LvePipeline> lvePipeline;
             VkPipelineLayout pipelineLayout;
             std::vector<VkCommandBuffer> commandBuffers;
 

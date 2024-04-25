@@ -1,30 +1,17 @@
 #include "first_app.hpp"
 
 #include <stdexcept>
+#include <array>
 
 namespace lve {
     
     // Constructor definition to initialize lveWindow, lvePipeline, etc...
-    FirstApp::FirstApp() 
-        : lveWindow(WIDTH, HEIGHT, "Hello Vulkan"),
-          lveDevice(lveWindow),
-          lveSwapChain(lveDevice, lveWindow.getExtent()) {
+    FirstApp::FirstApp(){
         // Constructor initializer, initializes lveWindow, lvePipeline,  etc...
 
         createPipeLineLayout();
         createPipeline();
         createCommandBuffers();
-
-        // Initialize lvePipeline using std::make_unique
-        auto pipelineConfig = LvePipeline::defaultPipelineConfigInfo(WIDTH, HEIGHT);
-        pipelineConfig.renderPass = lveSwapChain.getRenderPass();
-        pipelineConfig.pipelineLayout = pipelineLayout;
-
-        lvePipeline = std::make_unique<LvePipeline>(
-            lveDevice,
-            "shaders/simple_shader.vert.spv",
-            "shaders/simple_shader.frag.spv",
-            pipelineConfig);
     }
 
     FirstApp::~FirstApp(){
@@ -37,6 +24,8 @@ namespace lve {
                               // like keystrokes of user or clicks to X button to dismiss window
             drawFrame();
         }
+
+        vkDeviceWaitIdle(lveDevice.device());
     }
     
     void FirstApp::createPipeLineLayout(){
