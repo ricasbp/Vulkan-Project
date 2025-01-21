@@ -7,6 +7,7 @@
 
 # Tutorial and Diagrams:
 Thanks to Brendan Galea for all the material and code in this repository.
+
 You can find his tutorial here: https://www.youtube.com/playlist?list=PL8327DO66nu9qYVKLDmdLW_84-yE4auCR
 
 ## Building
