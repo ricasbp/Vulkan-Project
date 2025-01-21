@@ -2,7 +2,7 @@
 ![vulkanProject](https://github.com/ricasbp/Vulkan-Project/assets/59062659/64e73350-ef6d-4641-9ed7-fabc7b7d8b0e)
 
 # Architecture 
-![Vulkan_Vertical](https://github.com/user-attachments/assets/32695705-87c3-4d68-906e-0e9898a472ab)
+![Vulkan_Vertical](https://github.com/user-attachments/assets/6274a7ff-89dd-4515-b255-ac51419bd3fc)
 
 
 # Tutorial and Diagrams from:
