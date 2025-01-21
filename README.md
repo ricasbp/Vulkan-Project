@@ -1,8 +1,8 @@
-# Demo
+![Vulkan_Vertical](https://github.com/user-attachments/assets/fd44a567-44e2-427c-bb0c-7ed787df106e)# Demo
 ![vulkanProject](https://github.com/ricasbp/Vulkan-Project/assets/59062659/64e73350-ef6d-4641-9ed7-fabc7b7d8b0e)
 
 # Architecture 
-![Vulkan_Vertical](https://github.com/user-attachments/assets/6274a7ff-89dd-4515-b255-ac51419bd3fc)
+![Vulkan_Vertical](https://github.com/user-attachments/assets/deed7a69-fef6-4cec-8a14-4f24efdbdec4)
 
 
 # Tutorial and Diagrams from:
